@@ -2,5 +2,5 @@
 
 ## Run Tests
 ```
-cfn-guard-eks-isra git:(main) ✗ cfn-guard validate -r rules -d tests-data
+cfn-guard validate -r rules -d tests-data
 ```
