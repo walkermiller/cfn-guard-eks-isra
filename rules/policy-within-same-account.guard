@@ -1,0 +1,13 @@
+let account_and_aws_regex = /(094220450540|aws):policy/
+
+rule check_attached_managed_policies_within_the_same_account_or_managed_by_aws {
+    when configuration.assumeRolePolicyDocument == /Federated/ {
+        when configuration.assumeRolePolicyDocument == /oidc.eks/ {
+            when configuration.attachedManagedPolicies !empty {
+                configuration.attachedManagedPolicies.* {
+                    policyArn == %account_and_aws_regex <<Policy not managed by AWS or this account>>
+                }
+            }
+        }
+    }
+}

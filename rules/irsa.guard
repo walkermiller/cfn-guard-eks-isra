@@ -1,0 +1,27 @@
+let account_regex = /(094220450540)/ 
+
+rule check_trusted_identity_in_same_account {
+
+    when configuration.assumeRolePolicyDocument is_string {
+        when configuration.assumeRolePolicyDocument == /Federated/ {
+            when configuration.assumeRolePolicyDocument == /oidc.eks/ {
+                configuration.assumeRolePolicyDocument == %account_regex
+                <<Trusted Principal not within this account>>
+                configuration.assumeRolePolicyDocument != /.*Principal.*Principal.*/ <<More than one trusted entity defined>>
+            }
+        }
+    }
+
+     when configuration.assumeRolePolicyDocument is_struct {
+        configuration.assumeRolePolicyDocument.Statement[*] {
+            when  Principal.Federated exists {
+                when Principal.Federated == /oidc.eks/ {
+                    Principal.Federated == %account_regex
+                }
+            }
+        }
+    }
+}
+
+
+

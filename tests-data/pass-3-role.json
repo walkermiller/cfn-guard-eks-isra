@@ -1,0 +1,56 @@
+{
+    "version": "1.3",
+    "accountId": "094220450540",
+    "configurationItemCaptureTime": "2022-05-16T17:08:12.290Z",
+    "configurationItemStatus": "ResourceDiscovered",
+    "configurationStateId": "1652720892290",
+    "configurationItemMD5Hash": "",
+    "arn": "arn:aws:iam::094220450540:role/aws-preprod-qa-eks-cluster-autoscaler-sa-irsa",
+    "resourceType": "AWS::IAM::Role",
+    "resourceId": "AROARL37Z7LWNSERRN2YG",
+    "resourceName": "aws-preprod-qa-eks-cluster-autoscaler-sa-irsa",
+    "awsRegion": "global",
+    "availabilityZone": "Not Applicable",
+    "resourceCreationTime": "2022-05-06T14:35:08.000Z",
+    "tags": {
+      "app.kubernetes.io/managed-by": "terraform-eks-blueprints",
+      "Name": "aws-preprod-qa-eks-cluster-autoscaler-sa-irsa"
+    },
+    "relatedEvents": [],
+    "relationships": [
+      {
+        "resourceType": "AWS::IAM::Policy",
+        "resourceId": "ANPARL37Z7LWEVFIN3CRB",
+        "resourceName": "aws-preprod-qa-eks-cluster-autoscaler-irsa",
+        "relationshipName": "Is attached to CustomerManagedPolicy"
+      }
+    ],
+    "configuration": {
+      "path": "/",
+      "roleName": "aws-preprod-qa-eks-cluster-autoscaler-sa-irsa",
+      "roleId": "AROARL37Z7LWNSERRN2YG",
+      "arn": "arn:aws:iam::094220450540:role/aws-preprod-qa-eks-cluster-autoscaler-sa-irsa",
+      "createDate": "2022-05-06T14:35:08.000Z",
+      "assumeRolePolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Federated\":\"arn:aws:iam::094220450540:oidc-provider/oidc.eks.us-east-2.amazonaws.com/id/BC3C2439706C91F479D0862801199091\"},\"Action\":\"sts:AssumeRoleWithWebIdentity\",\"Condition\":{\"StringLike\":{\"oidc.eks.us-east-2.amazonaws.com/id/BC3C2439706C91F479D0862801199091:sub\":\"system:serviceaccount:kube-system:cluster-autoscaler-sa\"}}}]}",
+      "instanceProfileList": [],
+      "rolePolicyList": [],
+      "attachedManagedPolicies": [
+        {
+          "policyName": "aws-preprod-qa-eks-cluster-autoscaler-irsa",
+          "policyArn": "arn:aws:iam::094220450540:policy/aws-preprod-qa-eks-cluster-autoscaler-irsa"
+        }
+      ],
+      "tags": [
+        {
+          "key": "app.kubernetes.io/managed-by",
+          "value": "terraform-eks-blueprints"
+        },
+        {
+          "key": "Name",
+          "value": "aws-preprod-qa-eks-cluster-autoscaler-sa-irsa"
+        }
+      ]
+    },
+    "supplementaryConfiguration": {},
+    "resourceTransitionStatus": "None"
+  }
